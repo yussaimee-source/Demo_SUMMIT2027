@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Speakers — The Asian Banker Summit 2026</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .filter-btn{padding:.4rem 1rem;font-family:monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--rule);background:var(--paper);cursor:pointer;transition:all .2s;color:#666}
+    .filter-btn:hover,.filter-btn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  </style>
+</head>
+<body>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="label">Summit 2026</p>
+    <h1 class="d-lg mt-2">Confirmed <em>Speakers</em></h1>
+    <p class="page-hero-sub">70+ voices from government, regulation, banking, and technology.</p>
+  </div>
+</div>
+
+<div style="background:var(--warm);border-bottom:1px solid var(--rule);padding:.85rem 0;position:sticky;top:68px;z-index:50">
+  <div class="container" style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center">
+    <span style="font-family:monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:#999;margin-right:.25rem">Filter:</span>
+    <button class="filter-btn on" data-f="all">All</button>
+    <button class="filter-btn" data-f="keynote">Keynote</button>
+    <button class="filter-btn" data-f="regulator">Regulator</button>
+    <button class="filter-btn" data-f="banking">Banking</button>
+    <button class="filter-btn" data-f="technology">Technology</button>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Featured keynote -->
+    <p class="label reveal">Featured Keynote</p>
+    <div class="reveal d1" data-cat="keynote" style="display:grid;grid-template-columns:260px 1fr;gap:3rem;align-items:center;padding:3rem;background:var(--ink);color:var(--paper);margin-top:2rem;margin-bottom:4rem">
+      <div style="aspect-ratio:3/4;background:linear-gradient(135deg,#1a1a2e,#16213e);display:flex;align-items:center;justify-content:center"><span style="font-family:var(--ff-d);font-size:5rem;color:rgba(255,255,255,.1)">PM</span></div>
+      <div>
+        <span style="display:inline-block;background:var(--gold);color:#fff;font-family:monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;padding:.25rem .65rem;margin-bottom:1.25rem">Opening Keynote</span>
+        <h2 class="d-md" style="color:var(--paper)">Patrick McHenry</h2>
+        <p style="color:var(--gold-lt);font-family:monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;margin:.5rem 0">Former Chairman · U.S. House Financial Services Committee</p>
+        <p style="color:rgba(255,255,255,.6);line-height:1.8;max-width:54ch;margin-top:1rem;font-size:.92rem">A key architect of U.S. financial regulation and global voice on the future of banking. McHenry advises financial institutions and policymakers on balancing innovation, resilience, and trust in an AI-enabled financial system.</p>
+        <div style="display:flex;gap:2rem;margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.08)">
+          <div><div style="font-family:monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem">Session</div><div style="color:rgba(255,255,255,.7);font-size:.85rem">Day 1 — 9:30 AM</div></div>
+          <div><div style="font-family:monospace;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem">Topic</div><div style="color:rgba(255,255,255,.7);font-size:.85rem">The Global Digital Finance Playbook</div></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="label reveal mb-3">All Speakers</p>
+    <div class="speakers-grid" id="grid">
+      <div class="spk reveal" data-cat="technology"><div class="spk-img" style="background:linear-gradient(135deg,#0f2027,#203a43)"><span style="font-family:var(--ff-d);font-size:3rem;color:rgba(255,255,255,.12)">RK</span></div><div class="spk-overlay"></div><div class="spk-info"><div class="spk-name">Raad Khraishi, PhD</div><div class="spk-role">Head of AI R&amp;D</div><div class="spk-org">NatWest Group &amp; UCL</div></div></div>
+      <div class="spk reveal d1" data-cat="banking"><div class="spk-img" style="background:linear-gradient(135deg,#1a1a2e,#2d1b69)"><span style="font-family:var(--ff-d);font-size:3rem;color:rgba(255,255,255,.12)">CHL</span></div><div class="spk-overlay"></div><div class="spk-info"><div class="spk-name">Chia Hock Lai</div><div class="spk-role">Co-founder &amp; CSO</div><div class="spk-org">Embed Financial Group</div></div></div>
+      <div class="spk reveal d2" data-cat="banking"><div class="spk-img" style="background:linear-gradient(135deg,#0d1117,#21262d)"><span style="font-family:var(--ff-d);font-size:3rem;color:rgba(255,255,255,.12)">RR</span></div><div class="spk-overlay"></div><div class="spk-info"><div class="spk-name">Raj Raman</div><div class="spk-role">Market Manager, Intl Payments APAC</div><div class="spk-org">BNY</div></div></div>
+      <div class="spk reveal d3" data-cat="regulator"><div class="spk-img" style="background:linear-gradient(135deg,#1c1c1c,#2e2e2e)"><span style="font-family:var(--ff-d);font-size:3rem;color:rgba(255,255,255,.12)">PC</span></div><div class="spk-overlay"></div><div class="spk-info"><div class="spk-name">Prof. Chia Chee Sheng</div><div class="spk-role">Adjunct Professor &amp; Advisor</div><div class="spk-org">NUS AIDF / MAS</div></div></div>
+      <div class="spk reveal" data-cat="banking"><div class="spk-img" style="background:linear-gradient(135deg,#0a1628,#1e3a5f)"><span style="font-family:var(--ff-d);font-size:2rem;color:rgba(255,255,255,.15)">TBA</span></div><div class="spk-overlay"></div><div class="spk-info"><div class="spk-name">Speaker TBA</div><div class="spk-role">Chief Executive Officer</div><div class="spk-org">Leading ASEAN Bank</div></div></div>
+      <div class="spk reveal d1" data-cat="regulator"><div class="spk-img" style="background:linear-gradient(135deg,#1a2a1a,#2d4a2d)"><span style="font-family:var(--ff-d);font-size:2rem;color:rgba(255,255,255,.15)">TBA</span></div><div class="spk-overlay"></div><div class="spk-info"><div class="spk-name">Speaker TBA</div><div class="spk-role">Governor</div><div class="spk-org">Central Bank</div></div></div>
+      <div class="spk reveal d2" data-cat="technology"><div class="spk-img" style="background:linear-gradient(135deg,#2a1a1a,#4a2d2d)"><span style="font-family:var(--ff-d);font-size:2rem;color:rgba(255,255,255,.15)">TBA</span></div><div class="spk-overlay"></div><div class="spk-info"><div class="spk-name">Speaker TBA</div><div class="spk-role">Chief AI Officer</div><div class="spk-org">Global Financial Institution</div></div></div>
+      <div class="spk reveal d3" data-cat="banking"><div class="spk-img" style="background:linear-gradient(135deg,#1a1a2e,#16213e)"><span style="font-family:var(--ff-d);font-size:2rem;color:rgba(255,255,255,.15)">TBA</span></div><div class="spk-overlay"></div><div class="spk-info"><div class="spk-name">Speaker TBA</div><div class="spk-role">Managing Director, APAC</div><div class="spk-org">Global Investment Bank</div></div></div>
+    </div>
+
+    <div class="text-center mt-4 reveal">
+      <p class="text-muted mb-2" style="font-family:monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase">More speakers announced weekly</p>
+      <a href="contact.html" class="btn btn-out">Apply to Speak <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<script src="js/app.js"></script>
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const f=btn.dataset.f;
+      document.querySelectorAll('[data-cat]').forEach(c=>c.style.display=(f==='all'||c.dataset.cat===f)?'':'none');
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+    });
+  });
+</script>
+</body></html>
