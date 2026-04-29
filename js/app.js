@@ -1,12 +1,16 @@
-// ── Shared nav + footer injected on every page ──
+/* ── Shared nav + footer injected on every page ── */
 (function(){
+const BASE = 'https://www.theasianbanker.com/summit2026/';
 
 const NAV = `
 <nav class="nav">
   <div class="inner">
     <a href="index.html" class="nav-logo">
-      <span class="nav-logo-tag">The Asian Banker</span>
-      <span class="nav-logo-name">Summit 2026</span>
+      <img src="${BASE}assets/images/logo/logo.png" alt="The Asian Banker" onerror="this.style.display='none'">
+      <div class="nav-logo-text">
+        <span class="nav-logo-tag">The Asian Banker</span>
+        <span class="nav-logo-name">Summit 2026</span>
+      </div>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -17,7 +21,7 @@ const NAV = `
       <li><a href="venue.html">Venue</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="register.html" class="btn btn-dark" style="font-size:.72rem">Register</a>
+    <a href="register.html" class="btn btn-red" style="font-size:.72rem">Register Now</a>
     <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -30,13 +34,13 @@ const NAV = `
   <a href="sponsors.html">Sponsors <span>→</span></a>
   <a href="venue.html">Venue <span>→</span></a>
   <a href="contact.html">Contact <span>→</span></a>
-  <a href="register.html" style="color:var(--gold)">Register Now <span>→</span></a>
+  <a href="register.html" style="color:var(--red)">Register Now <span>→</span></a>
 </div>`;
 
 const FOOTER = `
 <div class="nl">
   <div class="container">
-    <p class="label mb-2">Stay Informed</p>
+    <p class="label" style="color:rgba(255,255,255,.5);margin-bottom:.75rem">Stay Informed</p>
     <h2 class="nl-title">Get summit updates</h2>
     <p class="nl-sub">Speaker reveals, programme releases &amp; early-bird alerts.</p>
     <form class="nl-form" onsubmit="event.preventDefault();this.querySelector('.nl-btn').textContent='Subscribed ✓'">
@@ -49,6 +53,7 @@ const FOOTER = `
   <div class="container">
     <div class="footer-grid">
       <div>
+        <img src="${BASE}assets/images/logo/logo.png" alt="The Asian Banker" class="footer-logo" onerror="this.style.display='none'">
         <p class="footer-brand">The Asian Banker Summit 2026</p>
         <p class="footer-desc">Asia's most prominent annual gathering of global banking leaders — since 1999.</p>
         <div class="footer-social mt-3">
@@ -70,7 +75,7 @@ const FOOTER = `
         <p class="footer-col-title">Participate</p>
         <ul class="footer-links">
           <li><a href="register.html">Register</a></li>
-          <li><a href="sponsors.html">Sponsor</a></li>
+          <li><a href="sponsors.html">Sponsor / Exhibit</a></li>
           <li><a href="contact.html">Apply to Speak</a></li>
           <li><a href="contact.html">Media Accreditation</a></li>
         </ul>
@@ -81,7 +86,8 @@ const FOOTER = `
           <li><a href="mailto:summit@theasianbanker.com">summit@theasianbanker.com</a></li>
           <li><a href="https://www.theasianbanker.com" target="_blank">theasianbanker.com</a></li>
         </ul>
-        <p style="margin-top:1rem;font-size:.78rem;line-height:1.65">13–14 May 2026<br>Kuala Lumpur, Malaysia</p>
+        <p style="margin-top:1rem;font-size:.78rem;line-height:1.65">13–14 May 2026<br>Mandarin Oriental, KL</p>
+        <img src="${BASE}assets/img-2026/banner-logo/HRD-Corp-claimable-logo.webp" alt="HRD Corp" style="height:36px;width:auto;margin-top:1rem;opacity:.6" onerror="this.style.display='none'">
       </div>
     </div>
     <div class="footer-bottom">
@@ -95,28 +101,24 @@ const FOOTER = `
   </div>
 </footer>`;
 
-  // Inject nav
   const tmp = document.createElement('div');
   tmp.innerHTML = NAV;
   while(tmp.firstChild) document.body.insertBefore(tmp.firstChild, document.body.firstChild);
 
-  // Inject footer
   const tmp2 = document.createElement('div');
   tmp2.innerHTML = FOOTER;
   while(tmp2.firstChild) document.body.appendChild(tmp2.firstChild);
 
-  // Active link
   const page = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(a => {
     if(a.getAttribute('href') === page) a.classList.add('active');
   });
 
-  // Scroll
   const nav = document.querySelector('.nav');
-  window.addEventListener('scroll', ()=> nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
-  if(scrollY > 40) nav.classList.add('scrolled');
+  const onScroll = () => nav.classList.toggle('scrolled', scrollY > 40);
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 
-  // Mobile menu
   const burger = document.querySelector('.nav-burger');
   const mob = document.querySelector('.mobile-nav');
   const cls = document.querySelector('.mobile-nav-close');
@@ -124,26 +126,24 @@ const FOOTER = `
   burger?.addEventListener('click', ()=>{ mob.classList.add('open'); document.body.style.overflow='hidden'; });
   cls?.addEventListener('click', close);
   mob?.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
-
 })();
 
-// ── Shared behaviours ──
 document.addEventListener('DOMContentLoaded', ()=>{
 
-  // Reveal on scroll
+  /* Reveal */
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
   }, {threshold:.1});
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  // Counter animation
+  /* Counters */
   const co = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if(!e.isIntersecting) return;
       const el = e.target, target = +el.dataset.target, sfx = el.dataset.suffix||'';
       const s = performance.now();
       const step = ts => {
-        const p = Math.min((ts-s)/1400,1), ease = 1-Math.pow(1-p,3);
+        const p = Math.min((ts-s)/1400, 1), ease = 1-Math.pow(1-p,3);
         el.textContent = Math.floor(ease*target)+sfx;
         if(p<1) requestAnimationFrame(step);
       };
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   },{threshold:.5});
   document.querySelectorAll('[data-target]').forEach(el => co.observe(el));
 
-  // Schedule tabs
+  /* Schedule tabs */
   document.querySelectorAll('.day-tab').forEach(tab => {
     tab.addEventListener('click', ()=>{
       document.querySelectorAll('.day-tab').forEach(t=>t.classList.remove('active'));
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   });
 
-  // FAQ
+  /* FAQ */
   document.querySelectorAll('.faq-q').forEach(q => {
     q.addEventListener('click', ()=>{
       const item = q.closest('.faq-item'), was = item.classList.contains('open');
@@ -173,11 +173,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   });
 
-  // Hash scroll
+  /* Hash scroll */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e=>{
       const t = document.querySelector(a.getAttribute('href'));
-      if(t){ e.preventDefault(); window.scrollTo({top: t.getBoundingClientRect().top+scrollY-80, behavior:'smooth'}); }
+      if(t){ e.preventDefault(); window.scrollTo({top:t.getBoundingClientRect().top+scrollY-80, behavior:'smooth'}); }
     });
   });
 
